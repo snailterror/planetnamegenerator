@@ -1,6 +1,7 @@
 /**
  * Generate planet name with params
- * @return {Array<string>} return array of string with generated name
+ * @param  {Params}
+ * @return {Array<string>}
  */
 function planetNameGenerator(params) {
     var nameArray = [];
@@ -9,6 +10,11 @@ function planetNameGenerator(params) {
     }
     return nameArray;
 }
+/**
+ * Name generator
+ * @param  {Number=5} nameLength
+ * @return {String}
+ */
 function generateName(nameLength) {
     if (nameLength === void 0) { nameLength = 5; }
     var text = "";

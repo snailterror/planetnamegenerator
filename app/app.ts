@@ -7,7 +7,8 @@ interface Params {
 
 /**
  * Generate planet name with params
- * @return {Array<string>} return array of string with generated name
+ * @param  {Params}
+ * @return {Array<string>}
  */
 function planetNameGenerator(params:Params):Array<string>{
 
@@ -21,7 +22,11 @@ function planetNameGenerator(params:Params):Array<string>{
 
 }
 
-
+/**
+ * Name generator
+ * @param  {Number=5} nameLength
+ * @return {String}
+ */
 function generateName(nameLength:Number=5):String{
 
   let text = "";
