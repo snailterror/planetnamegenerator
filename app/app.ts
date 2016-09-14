@@ -13,11 +13,11 @@ function planetNameGenerator(params:Params):Array<string>{
 
   let nameArray = [];
 
-  for(var i=0; i < params.limit; i++){
+  for( let i=0; i < params.limit; i++ ){
     nameArray.push(generateName(params.limit));
   }
 
-  return ["", ""];
+  return nameArray;
 
 }
 
@@ -25,10 +25,21 @@ function planetNameGenerator(params:Params):Array<string>{
 function generateName(nameLength:Number=5):String{
 
   let text = "";
-  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let generateNumber = "";
+  const upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+  const numericAlphabet = "0123456789";
 
-  for( var i=0; i < nameLength; i++ )
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  const baseName = ["", "Alm", "Er", "Stid", "Centu", "Sten", "Ly", "Er", "Or", "Ege", "Eg", "Roma", "Pern"];
+  const endName = ["", "Prime", "Alpha", "Tetra", "on", "fa", "ri", "ry", "us", "go"];
+
+  text += baseName[Math.floor((Math.random() * (baseName.length - 1)) + 1)];
+  text += endName[Math.floor((Math.random() * (endName.length - 1)) + 1)];
+
+  for( let i=0; i < 4; i++ )
+      generateNumber += numericAlphabet.charAt(Math.floor(Math.random() * numericAlphabet.length));
+
+  text += `_${generateNumber}`;
 
   return text;
 

@@ -7,14 +7,22 @@ function planetNameGenerator(params) {
     for (var i = 0; i < params.limit; i++) {
         nameArray.push(generateName(params.limit));
     }
-    return ["", ""];
+    return nameArray;
 }
 function generateName(nameLength) {
     if (nameLength === void 0) { nameLength = 5; }
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < nameLength; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    var generateNumber = "";
+    var upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    var numericAlphabet = "0123456789";
+    var baseName = ["", "Alm", "Er", "Stid", "Centu", "Sten", "Ly", "Er", "Or", "Ege", "Eg", "Roma", "Pern"];
+    var endName = ["", "Prime", "Alpha", "Tetra", "on", "fa", "ri", "ry", "us", "go"];
+    text += baseName[Math.floor((Math.random() * (baseName.length - 1)) + 1)];
+    text += endName[Math.floor((Math.random() * (endName.length - 1)) + 1)];
+    for (var i = 0; i < 4; i++)
+        generateNumber += numericAlphabet.charAt(Math.floor(Math.random() * numericAlphabet.length));
+    text += "_" + generateNumber;
     return text;
 }
 module.exports = planetNameGenerator;
