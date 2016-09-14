@@ -22,6 +22,7 @@ gulp.task('browserify', function() {
         debug: true,
         cache: {},
         packageCache: {},
+        standalone : "planetNameGenerator",
         fullPaths: true
     }).transform(babelify);
 
@@ -54,6 +55,7 @@ gulp.task('browserify-prod', function() {
     var bundler = browserify({
         entries: [config.dev.jsFile],
         debug: true,
+        standalone : "planetNameGenerator",
         cache: {}, packageCache: {}, fullPaths: true
     }).transform(babelify);
 
